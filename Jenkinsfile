@@ -54,7 +54,7 @@ pipeline {
         {
         // Git Checkout
         script{
-                checkout scmGit(branchs : [[name:'*/main']],extenstions:[],userRemoteConfigs:[[url:'https://github.com/rneduncheralathan/dell-web-app.git']])
+                checkout scmGit(branches : [[name:'*/main']],extensions:[],userRemoteConfigs:[[url:'https://github.com/rneduncheralathan/dell-web-app.git']])
             }
         }
         }
@@ -72,11 +72,11 @@ pipeline {
             steps {
                 script {
                     if (params.ENVIRONMENT == 'prod') {
-                        sh "docker run -d -p 80:80 your-docker-image:latest"
+                        sh "docker run -d -p 8092:80 your-docker-image:latest"
                     } else if (params.ENVIRONMENT == 'staging') {
-                        sh "docker run -d -p 8082:80 your-docker-image:staging"
+                        sh "docker run -d -p 8083:80 your-docker-image:staging"
                     } else {
-                        sh "docker run -d -p 8081:80 your-docker-image:dev"
+                        sh "docker run -d -p 8084:80 your-docker-image:dev"
                     }
                 }
             }
