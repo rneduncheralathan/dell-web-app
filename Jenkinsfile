@@ -52,7 +52,7 @@ pipeline {
     stage('Git Checkout'){
         steps
         {
-        Git Checkout
+        // Git Checkout
         script{
                 checkout scmGit(branchs : [[name:'*/main']],extenstions:[],userRemoteConfigs:[[url:'https://github.com/rneduncheralathan/dell-web-app.git']])
             }
